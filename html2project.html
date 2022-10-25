@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid CSS Layout</title>
+    <style>
+        body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #333;
+  color: rgb(212, 45, 45);
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 1em 0;
+}
+
+p {
+  margin: 0;
+  padding: 1em 0;
+}
+
+.btn {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+  border: 1px solid #666;
+  margin: 0.5em 0;
+}
+
+.btn:hover {
+  background: #eaeaea;
+  color: #333;
+}
+
+/* Header Showcase */
+
+#showcase {
+  min-height: 450px;
+  color: #fff;
+  text-align: center;
+}
+
+#showcase .bg-image {
+  position: absolute;
+  background: #333
+    url("https://static.pexels.com/photos/248515/pexels-photo-248515.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 450px;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+#showcase h1 {
+  padding-top: 100px;
+  padding-bottom: 0;
+}
+
+#showcase .content-wrap,
+#section-a .content-wrap {
+  padding: 0 1.5em;
+}
+
+/* Section A */
+
+#section-a {
+  background: #eaeaea;
+  color: #333;
+  padding-bottom: 2em;
+}
+
+/* Section B */
+
+#section-b {
+  padding: 2em 1em 1em;
+}
+
+#section-b ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#section-b li {
+  margin-bottom: 1em;
+  background: rgb(255, 252, 252);
+  color: rgb(77, 47, 47);
+}
+
+.card-content {
+  padding: 2em;
+}
+
+/* Section C */
+
+#section-c {
+  background: #fff;
+  color: #333;
+  padding: 2em;
+}
+
+/* Section D / Boxes */
+
+#section-d .box {
+  padding: 2em;
+  color: #fff;
+}
+
+#section-d .box:first-child {
+  background: #2690d4;
+}
+
+/* Footer */
+
+#main-footer {
+  padding: 2em;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+#main-footer a {
+  color: #2690d4;
+  text-decoration: none;
+}
+
+/* Media Queries */
+
+@media (min-width: 700px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+  }
+
+  #section-a .content-text {
+    columns: 2;
+    column-gap: 2em;
+  }
+
+  #section-a .content-text p {
+    padding-top: 0;
+  }
+
+  .content-wrap,
+  #section-b ul {
+    grid-column: 2/4;
+  }
+
+  .box,
+  #main-footer div {
+    grid-column: span 2;
+  }
+
+  #section-b ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #section-b li {
+    width: 31%;
+  }
+}
+/* #card1{
+    width: 260px;
+    padding: auto;
+    text-align: center;
+} */
+
+    </style>
+</head>
+<body>
+    <!-- Header Showcase -->
+<header id="showcase" class="grid">
+    <div class="bg-image"></div>
+    <div class="content-wrap">
+      <h1>Welcome to Code With Marwin</h1>
+      <p>A Perfect Destination for Coders</p>
+      <a href="#section-b" class="btn">Read More</a>
+    </div>
+  </header>
+  
+  <!-- Main Area -->
+  <main id="main">
+    <!-- Section A -->
+    <section id="section-a" class="grid">
+      <div class="content-wrap">
+        <h2 class="content-title">Web & Application Development</h2>
+        <div class="content-text">
+          <p>We are your tech buddies in developing Application and Websites. Know how tech giants use to work in these fields through us. We will bring you a glimpse of the role in WebDev and AppDev in software industry</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Section B -->
+    <section id="section-b" class="grid">
+      <ul>
+        <li>
+          <div class="card">
+            <img src="webd.png" alt="">
+            <div class="card-content">
+              <h3 class="card-title">Web Development</h3>
+              <p>Web Development brings you all the insights of various languages and stacks like MERN, Django Stack </p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="card" id = "card1">
+            <img src="photo-1618761714954-0b8cd0026356.jpg" alt="">
+            <div class="card-content">
+              <h3 class="card-title">Mobile Applications</h3>
+              <p>App Development brings you to an exciting world of real-life applications designed by Flutter, React-Native, Kotlin, etc.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="card">
+            <img src="Marketing.jpg" alt="">
+            <div class="card-content">
+              <h3 class="card-title">Tech Marketing</h3>
+              <p>Tech Marketing will show you how to marketise the websites, applications and how can you make money from it.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  
+    <!-- Section C -->
+    <section id="section-c" class="grid">
+      <div class="content-wrap">
+        <h2 class="content-title">We handle all of your digital needs</h2>
+        <p>Need a quick recap of contacts? Can't understand a concept which is important in your project? We are here for you always!!!!</p>
+      </div>
+    </section>
+  
+    <!-- Section D -->
+    <section id="section-d" class="grid">
+      <div class="box">
+        <h2 class="content-title">Contact Us</h2>
+        <p>You can contact on toll-free number that is provided on the website. For further queries, you can contact on our email Id.</p>
+        <p>contact shroffmarwin007@gmail.com</p>
+        <!-- <a href="shroffmarwin007@gmail.com"></a> -->
+    
+      </div>
+      <div class="box">
+        <h2 class="content-title">About Our Company</h2>
+        <p>We bring the best solutions to beginners in the field of Web Development. We have completed more than 250+ projects on Web Development. We started as a tutorial website for beginners with ready templates but now we provide detailed solutions on mini projects and key concepts.</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer id="main-footer" class="grid">
+    <div>Code With Marwin</div>
+    <div>Project By <a href=" " target="_blank">Marwin Shroff</a></div>
+  </footer>
+</body>
+</html>
